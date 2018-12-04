@@ -1,0 +1,38 @@
+{
+  "name": "Mortas-Vault",
+  "version": "1.0.0",
+  "description": "Underground Techno Vault",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "pg": "^7.6.0",
+    "body-parser": "^1.13.3",
+    "express-session": "^1.11.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/teknopup/MortasVault.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "mysql",
+    "database",
+    "techno"
+  ],
+  "author": "Alexandra Dohm",
+  "license": "ISC"
+}

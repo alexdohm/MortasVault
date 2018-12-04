@@ -1,0 +1,114 @@
+/* Formatting for MORTA's Vault Logo and Navigation Menu */
+
+h1 
+{
+  font: 80px/.5 'Faster One';
+  font-size: 8vw;
+  font-weight: 300;
+  margin-top: 8%;
+}
+
+h1 a
+{
+  text-decoration: none;
+  color:#00ff66;
+}
+
+h1 a:hover
+{
+  text-decoration: none;
+  color:#00ff66;
+}
+
+
+
+/* Box that holds the main menu */
+#main-menu 
+{
+  text-align: center;
+}
+
+
+/* Entire Unordered List */
+#main-menu ul 
+{
+  display: flex ;
+  width: 50%;
+  list-style-type: none;	
+  margin: 0px auto;
+  padding: 0px 0px;
+	
+}
+
+/* Each Element in the Unordered List */
+#main-menu ul li 
+{
+  float: left;
+  flex: 1 1 100%;
+  text-align: center;
+}
+
+/* Text inside each element in list */
+#main-menu ul li a 
+{
+  display:block;
+  color: #ffCC00;
+  text-decoration: none;
+  font:16px/1 'Courier New';
+  letter-spacing: -1px;
+  font-weight: 200;
+  font-size: 3vw;
+  line-height:15px;
+  margin-bottom: 5%;
+}
+
+/* Hover over text in list element */
+#main-menu ul li a:hover 
+{		
+  background:none; 
+  color:#00ff66;	
+}
+
+/* THE FOLLOWING INCLUDED CODE IS IF 2ND TIER LIST WANTS TO BE ADDED TO THE MENU */
+/* IT DOES NOT EXIST IN THE CURRENT WEBSITE */
+
+		#main-menu ul ul 
+		{
+		  display: none;   
+		  background: none;
+		  padding: 0px 0px;
+		  margin-left: 7%;
+		}
+		
+		/*show when hovering */
+		#main-menu ul li:hover > ul 
+		{
+		  display: block !important;
+		  border-style: none;
+		  position: absolute;
+		  z-index: 100;
+		  background:#282828;
+		  width: 5%;
+			
+		}
+
+		#main-menu ul ul li 
+		{
+		  float: none;
+		  position: relative;
+	
+		}
+		
+		#main-menu ul ul li a 
+		{
+	      font-size:2.2vw ;
+		  font-weight: 200;
+		  line-height:120%;
+		  text-align: left;			
+		}	
+		
+		#main-menu ul #sub li a:hover 
+		{
+		  background:none; 
+		  color:#00ff66;
+		}
