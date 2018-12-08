@@ -18,13 +18,13 @@ const pool = new Pool({
 })
 
 
-pool.query('SELECT * from countries', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  pool.end();
-});
+// pool.query('SELECT * from countries', (err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   pool.end();
+// });
 
 /* Body parser for post requests....not sure if i need this*/
 var bodyParser = require('body-parser')
