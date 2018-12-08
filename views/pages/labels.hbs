@@ -8,31 +8,38 @@
     <meta charset="utf-8">
 
     <title>Underground Labels</title>
-<!--     <link rel="stylesheet" href="/Animals/animals.css" type="text/css" />  -->
+    <link rel="stylesheet" href="/styling/label.css" type="text/css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
-  <body>     
+  <body style= "background-color:#282828">
+
   <!-- Load navagation bar-->  
   {{> nav }} 
 
-  <!-- Table that displays all animals -->
-  <table id = "aTable">
+  <!-- Table Header -->
+  <p id = "title">Labels</p>
+  <p id = "tags">hard techno - industrial, rave, hardcore, gabber, acid </p> 
+  </br>
+
+  <!-- Table that displays all labels -->
+  <table id = "labelTable">
   <tbody> 
     {{#each label}} 
     <tr> 
-      <td>{{name}}</td> 
-      <td>{{country}}</td> 
-      <td>{{bandcamp}}</td> 
-      <td>{{soundcloud}}</td> 
-      <td>{{facebook}}</td> 
+      <td id="labelTitle">{{name}}</td> 
+      <td id="labelCountry">{{country}}</td> 
+      <td id="labelBC"><a href= "{{bandcamp}}"><i class = "fa fa-bandcamp"></i></a></td> 
+      <td id="labelSC"><a href ="{{soundcloud}}"><i class = "fa fa-soundcloud"></i> </a></td> 
+      <td id="labelFB"><a href ="{{facebook}}"><i class = "fa fa-facebook-square"></i> </a></td> 
     </tr> 
     {{/each}} 
   </tbody> 
   </table> 
 
 
-<!--  <script type="text/javascript" src="/Animals/animals.js"></script>
-   <script type="text/javascript" src="/jquery.js"></script>  -->
+
+   <!-- <script type="text/javascript" src="/jquery.js"></script> -->
 
   </body>
 </html>

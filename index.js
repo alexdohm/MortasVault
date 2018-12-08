@@ -5,9 +5,26 @@ const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-/* Database Connection */
-var pool = require('./dbcon.js')
-app.set('pool', pool)
+let pg = require('pg')
+if (process.env.DATABASE_URL) {
+  pg.defaults.ssl = true
+}
+
+/* Database Connection [heroku config opdate in .env for local running] */
+const { Pool } = require('pg')
+const pool = new Pool({
+  connectionString : process.env.configS,
+  ssl : true
+})
+
+
+// pool.query('SELECT * from countries', (err, res) => {
+//   if (err) throw err;
+//   for (let row of res.rows) {
+//     console.log(JSON.stringify(row));
+//   }
+//   pool.end();
+// });
 
 /* Body parser for post requests....not sure if i need this*/
 var bodyParser = require('body-parser')
@@ -20,23 +37,35 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
 
 app.engine('hbs', hbs({
-    extname: 'hbs',
-    defaultLayout: 'main',
-    layoutsDir: __dirname + '/views/pages/',
-    partialsDir: __dirname + '/views/partials/'
+  extname: 'hbs',
+  defaultLayout: 'main',
+  layoutsDir: __dirname + '/views/pages/',
+  partialsDir: __dirname + '/views/partials/'
 }))
 app.set('view engine', 'hbs')
 
-
-// app.set('views', path.join(__dirname, 'views'))
-
+/* Home Page */
 app.get('/', function(req, res) {
   res.render('./pages/home')
 })
 
-app.get('/Labels', function(req, res) {
-  res.render('./pages/home')
-  console.log("labels")
+/* Labels */
+app.get('/Labels', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    const result = await client.query('SELECT label_name AS name, country_name AS country, label_bc AS bandcamp, \
+       label_sc AS soundcloud, label_fb AS facebook\
+       FROM labels \
+       INNER JOIN countries ON country_id = label_country \
+       ORDER BY label_name DESC;')
+
+    const results = { 'label': (result) ? result.rows : null}
+    res.render('pages/Labels', results )
+    client.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
 })
 
 app.get('/Podcasts', function(req, res) {

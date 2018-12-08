@@ -1,0 +1,68 @@
+#labelTable {
+	width: 70%;
+    font-family: 'Courier', monospace;
+	font-size: 1.8vw;
+	margin: 0px auto;
+	border-collapse: collapse;
+}
+
+#labelTitle {
+	color: rgb(0, 230, 92);
+}
+
+#labelCountry {
+	color: rgb(0, 153, 61);
+}
+
+#labelSC{
+	text-align: center;
+}
+
+#labelFB {
+	text-align: center;
+}
+
+#labelBC {
+	text-align: center;
+}
+
+tr {
+	border-bottom: 1px black solid;
+}
+
+td {
+    padding: 5px;
+}
+
+a {
+	text-decoration: none;
+	color: #e6b800;
+}
+
+a:hover {
+	color:mediumvioletred;
+ }
+
+/*header*/
+#title {
+	width: 95%;
+    font-family: 'Courier', monospace;
+	font-size: 3vw;
+	margin: 0px auto;
+	text-align: center;
+	color:#00993d;
+	margin-top: 8%;
+	margin-bottom: 0%;
+}
+
+#tags 
+{
+	margin-top: 2%;
+	width: 90%;
+	color: #ffCC00;
+	font-family: 'Courier', monospace;
+	font-size: 1.5vw;
+	margin: 0px auto;
+	text-align: center;
+	font-weight: 100;
+}
