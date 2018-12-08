@@ -18,13 +18,13 @@ const pool = new Pool({
 })
 
 
-// pool.query('SELECT * from countries', (err, res) => {
-//   if (err) throw err;
-//   for (let row of res.rows) {
-//     console.log(JSON.stringify(row));
-//   }
-//   pool.end();
-// });
+pool.query('SELECT * from countries', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  pool.end();
+});
 
 /* Body parser for post requests....not sure if i need this*/
 var bodyParser = require('body-parser')
@@ -68,9 +68,23 @@ app.get('/Labels', async (req, res) => {
   }
 })
 
-app.get('/Podcasts', function(req, res) {
-  res.render('./pages/home')
-  console.log("podcasts")
+/* Podcasts */
+app.get('/Podcasts', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    const result = await client.query('SELECT label_name AS name, country_name AS country, label_bc AS bandcamp, \
+       label_sc AS soundcloud, label_fb AS facebook\
+       FROM labels \
+       INNER JOIN countries ON country_id = label_country \
+       ORDER BY label_name DESC;')
+
+    const results = { 'label': (result) ? result.rows : null}
+    res.render('pages/Labels', results )
+    client.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
 })
 
 app.get('/Contact', function(req, res) {
