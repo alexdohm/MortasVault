@@ -60,7 +60,7 @@ app.get('/Labels', async (req, res) => {
        ORDER BY label_name DESC;')
 
     const results = { 'label': (result) ? result.rows : null}
-    res.render('pages/Labels', results )
+    res.render('./pages/Labels', results )
     client.release()
   } catch (err) {
     console.error(err)
