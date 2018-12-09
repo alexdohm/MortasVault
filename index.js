@@ -48,7 +48,7 @@ app.get('/Labels', async (req, res) => {
        label_sc AS soundcloud, label_fb AS facebook\
        FROM labels \
        INNER JOIN countries ON country_id = label_country \
-       ORDER BY label_name DESC;')
+       ORDER BY label_name ASC;')
 
     const results = { 'label': (result) ? result.rows : null}
     res.render('./pages/labels', results )
@@ -67,7 +67,7 @@ app.get('/Podcasts', async (req, res) => {
        podcast_fb AS facebook\
        FROM podcasts \
        INNER JOIN countries ON country_id = podcast_country \
-       ORDER BY podcast_name DESC;')
+       ORDER BY podcast_name ASC;')
 
     const results = { 'podcast': (result) ? result.rows : null}
     res.render('./pages/podcasts', results )
