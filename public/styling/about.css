@@ -1,0 +1,33 @@
+.about 
+{
+	padding-top : 25px;
+	color: #ffCC00;
+	font:18px/1 'Courier';
+	font-weight: 200;
+	width: 90%;
+	margin: auto;
+	
+}
+
+h2
+{
+	color: #00ff66;
+	font-weight: 300;
+}
+
+a
+{
+	color: #00ff66;
+	text-decoration: none;
+}
+
+a:hover 
+{
+	color:mediumvioletred;
+}
+
+#links {
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+}

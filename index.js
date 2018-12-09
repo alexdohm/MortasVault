@@ -78,9 +78,8 @@ app.get('/Podcasts', async (req, res) => {
   }
 })
 
-app.get('/Contact', function(req, res) {
-  res.render('./pages/home')
-  console.log("contact")
+app.get('/About', function(req, res) {
+  res.render('./pages/about')
 })
 
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
