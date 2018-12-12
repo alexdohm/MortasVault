@@ -1,7 +1,7 @@
 ## MORTA'S VAULT
-Underground Hard Techno website which archives all labels and podcasts in the genre
+Underground Hard Techno website that archives all labels and podcasts in the genre
 
-While node.js site is being built, html site can be accesed [Here](https://mortasvault.com)
+Site can be accessed [Here](https://www.mortasvault.com)
 
 This site was built using :
 - Node.js
