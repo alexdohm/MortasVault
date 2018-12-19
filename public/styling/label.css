@@ -31,7 +31,7 @@
 
 #searchButton{
   position: absolute;
-  width: 20%;
+  width: 25%;
   height: 100%;
   border: 1px solid #00993D;
   background: #00993D;
@@ -57,18 +57,21 @@
  #country_Filter {
 	float: left;
 	width: 75%;
+	height: 100%;
 	padding: 5px;
 	outline: none;
 	background-color: #282828;
 	color: #e6b800;
 	border: 1px solid #e6b800;
+	font-family: 'Courier', monospace, bold;
+	font-size: 1.5vw;
  }
 
- option {
+/* option {
  	font-family: 'Courier', monospace, bold;
 	font-size: 1.5vw;
 
- }
+ }*/
 
 /* Table Formatting */
 #labelTable {
