@@ -10,6 +10,7 @@
     <title>Underground Labels</title>
     <link rel="stylesheet" href="/styling/label.css" type="text/css" /> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base href="/">
   </head>
 
   <body style= "background-color:#282828">
@@ -24,7 +25,40 @@
 
   <!-- Table that displays all labels -->
   <table id = "labelTable">
-  <tbody> 
+    <col style="width:48%">
+    <col style="width:31%">
+    <col style="width:7%">
+    <col style="width:7%">
+    <col style="width:7%">
+  <tbody id = "labelBody"> 
+  <thead>
+    <th>  
+      <div class="wrap">
+        <div class="search">
+          <input type="text" id="searchTerm" placeholder="Search Labels">
+          <button type="submit" id="searchButton" onclick="searchLabel()">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </th>
+    <th>
+      <!-- Filter by country  -->
+      <form id="filterCountry" action="" method="">
+        <select id="country_Filter" name="countryF" onchange="filterC(this.value)"> 
+          <option value="">Select</option>
+          {{#each countryL}}
+            <option value="{{id}}">{{country}}</option>
+          {{/each}}
+        </select>
+  </form>
+
+    </th>
+    <th></th>
+    <th></th>
+    <th><button type="submit" id="refreshButton" onclick="resetPage()">
+      <i class="fa fa-refresh"></i></th>
+  </thead>
     {{#each label}} 
     <tr> 
       <td id="labelTitle">{{name}}</td> 
@@ -37,9 +71,8 @@
   </tbody> 
   </table> 
 
-
-
-   <!-- <script type="text/javascript" src="/jquery.js"></script> -->
-
+  <script type="text/javascript" src="/labels.js"></script>
+  <script type="text/javascript" src="/jquery.js"></script> 
+  <script defer>selectCountry("{{countryS}}");</script>
   </body>
 </html>

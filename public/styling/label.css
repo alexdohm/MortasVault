@@ -1,9 +1,83 @@
+/*search bar*/
+.wrap{
+  position: relative;
+  padding-bottom :  12%;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.search {
+  width: 50%;
+  position: absolute;
+}
+
+#searchTerm {
+  font-family: 'Courier', monospace, bold;
+  font-size: 1.5vw;
+  float: left;
+  width: 100%;
+  border: .3vw solid #00993D;
+  padding: 5px;
+  height: 5%;
+  outline: none;
+  background-color: #282828;
+  color: #e6b800;
+}
+
+.searchTerm:focus{
+  color: #e6b800;
+  background-color : #282828;
+}
+
+#searchButton{
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  border: 1px solid #00993D;
+  background: #00993D;
+  color: #282828;
+  cursor: pointer;
+  font-size: 1.6vw;
+}
+
+#refreshButton {
+	position: relative;
+	margin : 0px auto;
+  	border: 1px solid #e6b800;
+  	background: #e6b800;
+  	color: #282828;
+  	cursor: pointer;
+  	font-size: 1.6vw;
+}
+
+#refreshButton:hover, #searchButton:hover {
+	color: black;
+ }
+
+ #country_Filter {
+	float: left;
+	width: 75%;
+	padding: 5px;
+	outline: none;
+	background-color: #282828;
+	color: #e6b800;
+	border: 1px solid #e6b800;
+ }
+
+ option {
+ 	font-family: 'Courier', monospace, bold;
+	font-size: 1.5vw;
+
+ }
+
+/* Table Formatting */
 #labelTable {
 	width: 70%;
     font-family: 'Courier', monospace;
 	font-size: 1.8vw;
 	margin: 0px auto;
 	border-collapse: collapse;
+	table-layout: auto;
 }
 
 #labelTitle {
@@ -43,7 +117,7 @@ a:hover {
 	color:mediumvioletred;
  }
 
-/*header*/
+/* header */
 #title {
 	width: 95%;
     font-family: 'Courier', monospace;

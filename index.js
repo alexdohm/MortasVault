@@ -5,11 +5,6 @@ const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-let pg = require('pg')
-if (process.env.DATABASE_URL) {
-  pg.defaults.ssl = true
-}
-
 /* Database Connection [heroku config opdate in .env for local running] */
 const { Pool } = require('pg')
 const pool = new Pool({
@@ -24,7 +19,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 /* Set app engine to handlebars */
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '/public')))
 app.set('views', path.join(__dirname, 'views'))
 
 app.engine('hbs', hbs({
@@ -42,16 +37,109 @@ app.get('/', function(req, res) {
 
 /* Labels */
 app.get('/Labels', async (req, res) => {
+
+  // Making these two variables global for the async promises
+  result = null
+  resultC = null
+
+  try {
+    const clientTwo = await pool.connect()
+    resultC = await clientTwo.query('SELECT c.country_id AS id, c.country_name AS country \
+       FROM countries c \
+       ORDER BY country_name ASC;')
+    clientTwo.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+
   try {
     const client = await pool.connect()
-    const result = await client.query('SELECT label_name AS name, country_name AS country, label_bc AS bandcamp, \
+    const result = await client.query('SELECT c.country_id AS id, label_name AS name, country_name AS country, label_bc AS bandcamp, \
        label_sc AS soundcloud, label_fb AS facebook\
        FROM labels \
-       INNER JOIN countries ON country_id = label_country \
+       INNER JOIN countries c ON country_id = label_country \
        ORDER BY label_name ASC;')
 
-    const results = { 'label': (result) ? result.rows : null}
+    results = { 'label': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null }
     res.render('./pages/labels', results )
+    client.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+})
+
+/* Filter Labels by Country */
+app.get('/Labels/filter/:country', async (req, res) => {
+
+  // Making these two variables global for the async promises
+  result = null
+  resultC = null
+
+  try {
+    const clientTwo = await pool.connect()
+    resultC = await clientTwo.query('SELECT c.country_id AS id, c.country_name AS country \
+       FROM countries c \
+       ORDER BY country_name ASC;')
+    clientTwo.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+
+  try {
+    const client = await pool.connect()
+    var query = 'SELECT c.country_id AS id, label_name AS name, country_name AS country, label_bc AS bandcamp, \
+       label_sc AS soundcloud, label_fb AS facebook\
+       FROM labels \
+       INNER JOIN countries c ON country_id = label_country \
+       WHERE country_id = $1 \
+       ORDER BY label_name ASC;'
+    var insert = req.params.country
+    const result = await client.query(query, [insert])
+
+    results = { 'label': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null, 'countryS': req.params.country }
+    res.render('./pages/labels', results )
+    client.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+})
+
+
+/* Labels Search */
+app.get('/Labels/search/:s', async (req, res) => {
+
+  // Making these two variables global for the async promises
+  result = null
+  resultC = null
+
+  try {
+    const clientTwo = await pool.connect()
+    resultC = await clientTwo.query('SELECT c.country_id AS id, c.country_name AS country \
+       FROM countries c \
+       ORDER BY country_name ASC;')
+    clientTwo.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+
+  try {
+    const client = await pool.connect()
+    var query = 'SELECT c.country_id AS id, label_name AS name, country_name AS country, label_bc AS bandcamp, \
+    label_sc AS soundcloud, label_fb AS facebook\
+    FROM labels \
+    INNER JOIN countries c ON country_id = label_country \
+    WHERE label_name ILIKE $1' ;
+
+    var insert = req.params.s + '%'
+    const result = await client.query(query, [insert])
+
+    newr = { 'label': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null }
+    res.render('./pages/labels', newr )
     client.release()
   } catch (err) {
     console.error(err)
