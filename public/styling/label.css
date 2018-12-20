@@ -8,7 +8,7 @@
 
 .search {
   width: 50%;
-  position: absolute;
+  position: relative;
 }
 
 #searchTerm {
@@ -17,7 +17,6 @@
   float: left;
   width: 100%;
   border: .3vw solid #00993D;
-  padding: 5px;
   height: 5%;
   outline: none;
   background-color: #282828;
@@ -31,13 +30,17 @@
 
 #searchButton{
   position: absolute;
-  width: 25%;
-  height: 100%;
-  border: 1px solid #00993D;
+  border: .3vw solid #00993D;
   background: #00993D;
   color: #282828;
   cursor: pointer;
-  font-size: 1.6vw;
+  display : inline-flex;
+
+  
+}
+
+#searchFa {
+	font-size: 1.6vw;
 }
 
 #refreshButton {
@@ -66,12 +69,6 @@
 	font-family: 'Courier', monospace, bold;
 	font-size: 1.5vw;
  }
-
-/* option {
- 	font-family: 'Courier', monospace, bold;
-	font-size: 1.5vw;
-
- }*/
 
 /* Table Formatting */
 #labelTable {
