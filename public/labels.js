@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', function onLoad(event) {
 
 function searchLabel() {
 	var searchString = $('#searchTerm').val()
-	window.location = '/Labels/search/' + encodeURI(searchString)
+    if (searchString) {
+        window.location = '/Labels/search/' + encodeURI(searchString)
+    }
+	
 }
 
 function resetPage() {

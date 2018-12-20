@@ -11,7 +11,10 @@ document.addEventListener('DOMContentLoaded', function onLoad(event) {
 
 function searchPodcast() {
 	var searchString = $('#searchTerm').val()
-	window.location = '/Podcasts/search/' + encodeURI(searchString)
+    if (searchString) {
+        window.location = '/Podcasts/search/' + encodeURI(searchString)
+    }
+	
 }
 
 function resetPage() {
