@@ -1,3 +1,78 @@
+/*search bar*/
+.wrap{
+  position: relative;
+  padding :  5px;
+  width: 100%;
+  margin: 0px auto;
+}
+
+.search {
+  width: 50%;
+  position: relative;
+}
+
+#searchTerm {
+  font-family: 'Courier', monospace, bold;
+  font-size: 1.5vw;
+  float: left;
+  width: 100%;
+  /*border: .1vw solid #e6b800;*/
+  /*border-radius : .5vw;*/
+  border : none;
+  /*#00993D;*/
+  height: 5%;
+  outline: none;
+  background-color: #282828;
+  color: #e6b800;
+}
+
+.searchTerm:focus{
+  color: #e6b800;
+  background-color : #282828;
+}
+
+#searchButton{
+  position: absolute;
+  /*border: .3vw solid #282828;
+  background: #282828;*/
+  background : none;
+  border: none;
+  color: #e6b800;
+  cursor: pointer;
+  display : inline-flex;
+}
+
+#searchFa {
+	font-size: 1.6vw;
+}
+
+#refreshButton {
+	position: relative;
+	margin : 0px auto;
+  	border: .3vw solid #282828;
+  	background: #282828;
+  	color: #e6b800;
+  	cursor: pointer;
+  	font-size: 1.6vw;
+}
+
+#refreshButton:hover, #searchButton:hover {
+	color: black;
+ }
+
+ #country_Filter {
+	float: left;
+	width: 70%;
+	padding: 5px;
+	outline: none;
+	background-color: #282828;
+	color: #e6b800;
+	border: none;
+	font-family: 'Courier', monospace, bold;
+	font-size: 1.5vw;
+ }
+
+/*Table formatting*/
 #podcastTable {
 	width: 70%;
     font-family: 'Courier', monospace;

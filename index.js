@@ -148,7 +148,42 @@ app.get('/Labels/search/:s', async (req, res) => {
 })
 
 /* Podcasts */
+// app.get('/Podcasts', async (req, res) => {
+//   try {
+//     const client = await pool.connect()
+//     const result = await client.query('SELECT podcast_name AS name, country_name AS country, podcast_sc AS soundcloud, \
+//        podcast_fb AS facebook\
+//        FROM podcasts \
+//        INNER JOIN countries ON country_id = podcast_country \
+//        ORDER BY podcast_name ASC;')
+
+//     const results = { 'podcast': (result) ? result.rows : null}
+//     res.render('./pages/podcasts', results )
+//     client.release()
+//   } catch (err) {
+//     console.error(err)
+//     res.send("Error " + err)
+//   }
+// })
+
+/* Podcasts */
 app.get('/Podcasts', async (req, res) => {
+
+  // Making these two variables global for the async promises
+  result = null
+  resultC = null
+
+  try {
+    const clientTwo = await pool.connect()
+    resultC = await clientTwo.query('SELECT c.country_id AS id, c.country_name AS country \
+       FROM countries c \
+       ORDER BY country_name ASC;')
+    clientTwo.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+
   try {
     const client = await pool.connect()
     const result = await client.query('SELECT podcast_name AS name, country_name AS country, podcast_sc AS soundcloud, \
@@ -157,7 +192,7 @@ app.get('/Podcasts', async (req, res) => {
        INNER JOIN countries ON country_id = podcast_country \
        ORDER BY podcast_name ASC;')
 
-    const results = { 'podcast': (result) ? result.rows : null}
+    results = { 'podcast': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null }
     res.render('./pages/podcasts', results )
     client.release()
   } catch (err) {
@@ -165,6 +200,84 @@ app.get('/Podcasts', async (req, res) => {
     res.send("Error " + err)
   }
 })
+
+/* Filter Podcasts by Country */
+app.get('/Podcasts/filter/:country', async (req, res) => {
+
+  // Making these two variables global for the async promises
+  result = null
+  resultC = null
+
+  try {
+    const clientTwo = await pool.connect()
+    resultC = await clientTwo.query('SELECT c.country_id AS id, c.country_name AS country \
+       FROM countries c \
+       ORDER BY country_name ASC;')
+    clientTwo.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+
+  try {
+    const client = await pool.connect()
+    var query = 'SELECT podcast_name AS name, country_name AS country, podcast_sc AS soundcloud, \
+       podcast_fb AS facebook\
+       FROM podcasts \
+       INNER JOIN countries ON country_id = podcast_country \
+       WHERE country_id = $1 \
+       ORDER BY podcast_name ASC;'
+    var insert = req.params.country
+    const result = await client.query(query, [insert])
+
+    results = { 'podcast': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null, 'countryS': req.params.country }
+    res.render('./pages/podcasts', results )
+    client.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+})
+
+/* Podcasts Search */
+app.get('/Podcasts/search/:s', async (req, res) => {
+
+  // Making these two variables global for the async promises
+  result = null
+  resultC = null
+
+  try {
+    const clientTwo = await pool.connect()
+    resultC = await clientTwo.query('SELECT c.country_id AS id, c.country_name AS country \
+       FROM countries c \
+       ORDER BY country_name ASC;')
+    clientTwo.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+
+  try {
+    const client = await pool.connect()
+    var query = 'SELECT podcast_name AS name, country_name AS country, podcast_sc AS soundcloud, \
+       podcast_fb AS facebook\
+       FROM podcasts \
+       INNER JOIN countries ON country_id = podcast_country \
+       WHERE podcast_name ILIKE $1 \
+       ORDER BY podcast_name ASC' ;
+
+    var insert = req.params.s + '%'
+    const result = await client.query(query, [insert])
+
+    newr = { 'podcast': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null }
+    res.render('./pages/podcasts', newr )
+    client.release()
+  } catch (err) {
+    console.error(err)
+    res.send("Error " + err)
+  }
+})
+
 
 app.get('/About', function(req, res) {
   res.render('./pages/about')

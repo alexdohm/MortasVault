@@ -3,13 +3,14 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Labels">
+    <meta name="description" content="Podcasts">
     <meta name="author" content="Alexandra Dohm">
     <meta charset="utf-8">
 
-    <title>Underground Labels</title>
+    <title>Underground Podcasts</title>
     <link rel="stylesheet" href="/styling/podcast.css" type="text/css" /> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <base href="/">
   </head>
 
   <body style= "background-color:#282828">
@@ -22,8 +23,42 @@
   <p id = "tags">industrial techno, hard techno, hardcore, acid, underground, etc</p> 
   </br>
 
-  <!-- Table that displays all labels -->
+  <!-- Table that displays all podcasts -->
   <table id = "podcastTable">
+    <col style="width:57%">
+    <col style="width:31%">
+    <col style="width:6%">
+    <col style="width:6%">
+  <tbody id = "podcastBody"> 
+  <thead>
+    <th>  
+      <div class="wrap">
+        <div class="search">
+          <input type="text" id="searchTerm" placeholder="Search Podcasts">
+          <button type="submit" id="searchButton" onclick="searchPodcast()">
+            <i class="fa fa-search" id="searchFa"></i>
+          </button>
+        </div>
+      </div>
+
+
+    </th>
+    <th>
+    <!-- Filter by country  -->
+      <form id="filterCountry" action="" method="">
+        <select id="country_Filter" name="countryF" onchange="filterC(this.value)"> 
+          <option value="">Filter</option>
+          {{#each countryL}}
+            <option value="{{id}}">{{country}}</option>
+          {{/each}}
+        </select>
+      </form> 
+
+    </th>
+    <th></th>
+    <th><button type="submit" id="refreshButton" onclick="resetPage()">
+      <i class="fa fa-refresh"></i></th>
+  </thead>
   <tbody> 
     {{#each podcast}} 
     <tr> 
@@ -36,7 +71,8 @@
   </tbody> 
   </table> 
 
-   <!-- <script type="text/javascript" src="/jquery.js"></script> -->
-
+  <script type="text/javascript" src="/podcast.js"></script>
+  <script type="text/javascript" src="/jquery.js"></script>
+  <script defer>selectCountry("{{countryS}}");</script>
   </body>
 </html>
