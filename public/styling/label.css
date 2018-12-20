@@ -1,7 +1,7 @@
 /*search bar*/
 .wrap{
   position: relative;
-  padding-bottom :  12%;
+  padding :  5px;
   width: 100%;
   margin: 0px auto;
 }
@@ -16,7 +16,10 @@
   font-size: 1.5vw;
   float: left;
   width: 100%;
-  border: .3vw solid #00993D;
+  /*border: .1vw solid #e6b800;*/
+  /*border-radius : .5vw;*/
+  border : none;
+  /*#00993D;*/
   height: 5%;
   outline: none;
   background-color: #282828;
@@ -30,13 +33,13 @@
 
 #searchButton{
   position: absolute;
-  border: .3vw solid #00993D;
-  background: #00993D;
-  color: #282828;
+  /*border: .3vw solid #282828;
+  background: #282828;*/
+  background : none;
+  border: none;
+  color: #e6b800;
   cursor: pointer;
   display : inline-flex;
-
-  
 }
 
 #searchFa {
@@ -46,9 +49,9 @@
 #refreshButton {
 	position: relative;
 	margin : 0px auto;
-  	border: 1px solid #e6b800;
-  	background: #e6b800;
-  	color: #282828;
+  	border: .3vw solid #282828;
+  	background: #282828;
+  	color: #e6b800;
   	cursor: pointer;
   	font-size: 1.6vw;
 }
@@ -59,13 +62,13 @@
 
  #country_Filter {
 	float: left;
-	width: 75%;
-	height: 100%;
+	width: 70%;
 	padding: 5px;
 	outline: none;
 	background-color: #282828;
 	color: #e6b800;
-	border: 1px solid #e6b800;
+	/*border: .1vw solid #e6b800;*/
+	border: none;
 	font-family: 'Courier', monospace, bold;
 	font-size: 1.5vw;
  }

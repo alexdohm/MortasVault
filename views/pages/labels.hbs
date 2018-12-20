@@ -41,17 +41,19 @@
           </button>
         </div>
       </div>
+
+
     </th>
     <th>
-      <!-- Filter by country  -->
+    <!-- Filter by country  -->
       <form id="filterCountry" action="" method="">
         <select id="country_Filter" name="countryF" onchange="filterC(this.value)"> 
-          <option value="">Select</option>
+          <option value="">Filter</option>
           {{#each countryL}}
             <option value="{{id}}">{{country}}</option>
           {{/each}}
         </select>
-  </form>
+      </form> 
 
     </th>
     <th></th>
