@@ -5,14 +5,14 @@ const app = express()
 const path = require('path')
 const PORT = process.env.PORT || 5000
 
-/* Database Connection [heroku config opdate in .env for local running] */
+/* Database Connection [heroku config update in .env for local running] */
 const { Pool } = require('pg')
 const pool = new Pool({
   connectionString : process.env.configS,
   ssl : true
 })
 
-/* Body parser for post requests....not sure if i need this*/
+/* Body parser for post requests */
 var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({
     extended: true
@@ -146,25 +146,6 @@ app.get('/Labels/search/:s', async (req, res) => {
     res.send("Error " + err)
   }
 })
-
-/* Podcasts */
-// app.get('/Podcasts', async (req, res) => {
-//   try {
-//     const client = await pool.connect()
-//     const result = await client.query('SELECT podcast_name AS name, country_name AS country, podcast_sc AS soundcloud, \
-//        podcast_fb AS facebook\
-//        FROM podcasts \
-//        INNER JOIN countries ON country_id = podcast_country \
-//        ORDER BY podcast_name ASC;')
-
-//     const results = { 'podcast': (result) ? result.rows : null}
-//     res.render('./pages/podcasts', results )
-//     client.release()
-//   } catch (err) {
-//     console.error(err)
-//     res.send("Error " + err)
-//   }
-// })
 
 /* Podcasts */
 app.get('/Podcasts', async (req, res) => {
