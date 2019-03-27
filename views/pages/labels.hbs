@@ -65,9 +65,9 @@
     <tr> 
       <td id="labelTitle">{{name}}</td> 
       <td id="labelCountry">{{country}}</td> 
-      <td id="labelBC"><a href= "{{bandcamp}}"><i class = "fa fa-bandcamp"></i></a></td> 
-      <td id="labelSC"><a href ="{{soundcloud}}"><i class = "fa fa-soundcloud"></i> </a></td> 
-      <td id="labelFB"><a href ="{{facebook}}"><i class = "fa fa-facebook-square"></i> </a></td> 
+      <td id="labelBC" >{{#if bandcamp}}<a href= "{{bandcamp}}"><i class = "fa fa-bandcamp"></i></a>{{/if}}</td> 
+      <td id="labelSC">{{#if soundcloud}}<a href ="{{soundcloud}}"><i class = "fa fa-soundcloud"></i> </a>{{/if}}</td> 
+      <td id="labelFB">{{#if facebook}}<a href ="{{facebook}}"><i class = "fa fa-facebook-square"></i> </a>{{/if}}</td> 
     </tr> 
     {{/each}} 
   </tbody> 

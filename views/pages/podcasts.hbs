@@ -64,8 +64,8 @@
     <tr> 
       <td id="podcastTitle">{{name}}</td> 
       <td id="podcastCountry">{{country}}</td> 
-      <td id="podcastSC"><a href ="{{soundcloud}}"><i class = "fa fa-soundcloud"></i> </a></td> 
-      <td id="podcastFB"><a href ="{{facebook}}"><i class = "fa fa-facebook-square"></i> </a></td> 
+      <td id="podcastSC">{{#if soundcloud}}<a href ="{{soundcloud}}"><i class = "fa fa-soundcloud"></i></a>{{/if}}</td> 
+      <td id="podcastFB">{{#if facebook}}<a href ="{{facebook}}"><i class = "fa fa-facebook-square"></i></a>{{/if}}</td> 
     </tr> 
     {{/each}} 
   </tbody> 
