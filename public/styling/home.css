@@ -1,0 +1,101 @@
+#mixInfo {
+	width: 90%;
+	margin: auto;
+	text-align: center;
+}
+#spotlight {
+	color: #ffCC00;
+	font-family: 'Cutive Mono', monospace;
+  	letter-spacing: -1px;
+  	font-weight: 200;
+  	font-size: 1.6vw;
+  	display: inline-block;
+  	text-decoration: none;
+}
+
+#spotlight:hover {
+	color:mediumvioletred;
+ }
+
+iframe { display: none; }
+
+#mixPlayer {
+	overflow: hidden;
+	width: 75%;
+	margin: auto;
+
+}
+
+.player {
+  cursor: pointer;
+  position: relative;
+  float: left;
+  overflow:hidden;
+  height: 14vw;
+  width: 90%;
+  font-family: 'Cutive Mono', monospace;
+  font-size: 2vw;
+  background-color: #efefef;
+  background-size: contain;
+  background-position: center;
+  transition: background-image 0.5s linear;
+}
+
+.waveform {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-size: 100% 100%;
+  background-repeat:no-repeat;
+  filter: invert(100%);
+}
+
+.position {
+  opacity: 0.35;
+  position: absolute;
+  height: 100%;
+  width: 0;
+  background-color: white;
+  transition: width 0.05s linear;
+  mix-blend-mode: luminosity;
+}
+
+.info {
+  user-select: none;
+  z-index: 5;
+  position: absolute;
+  height: 1em;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 2em;
+  letter-spacing: -.08em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  color: white;
+  mix-blend-mode: exclusion;
+}
+
+.fas{
+	color: #ffCC00;
+	font-size: 6vw;
+}
+
+.playPause {
+	width: 10%;
+	float:left;
+	transform: translateY(+65%);
+	cursor: pointer;
+}
+
+#mixInfo {
+	font-family: 'Cutive Mono', monospace;
+  	font-size: 2vw;
+  	color: white;
+}
