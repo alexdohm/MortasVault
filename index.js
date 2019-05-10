@@ -30,16 +30,14 @@ app.engine('hbs', hbs({
 }))
 app.set('view engine', 'hbs')
 
-// function nocache(req, res, next) {
-//   res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-//   res.header('Expires', '-1');
-//   res.header('Pragma', 'no-cache');
-//   next();
-// }
-
 /* Home Page */
 app.get('/', function(req, res) {
   res.render('./pages/home')
+})
+
+/* Test Home Page */
+app.get('/beta', function(req, res) {
+  res.render('./pages/homeBeta')
 })
 
 /* Labels */

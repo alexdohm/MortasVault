@@ -2,15 +2,31 @@
 	width: 90%;
 	margin: auto;
 	text-align: center;
+	font-family: 'Cutive Mono', monospace;
+  	font-size: 2vw;
+  	color: white;
 }
-#spotlight {
+
+#sorryAboutChrome {
 	color: #ffCC00;
 	font-family: 'Cutive Mono', monospace;
   	letter-spacing: -1px;
   	font-weight: 200;
+  	font-size: 1.2vw;
+  	margin: auto;
+  	width: 75%;
+  	text-align: left;
+}
+
+#spotlight {
+	color: #ffCC00;
+	font-family: 'Cutive Mono', monospace;
+  	letter-spacing: -1px;
+  	padding-bottom: 2px;
+  	font-weight: 200;
   	font-size: 1.6vw;
   	display: inline-block;
-  	text-decoration: none;
+  	/*text-decoration: none;*/
 }
 
 #spotlight:hover {
@@ -23,6 +39,7 @@ iframe { display: none; }
 	overflow: hidden;
 	width: 75%;
 	margin: auto;
+	-webkit-tap-highlight-color: transparent;
 
 }
 
@@ -59,12 +76,16 @@ iframe { display: none; }
   height: 100%;
   width: 0;
   background-color: white;
-  transition: width 0.05s linear;
-  mix-blend-mode: luminosity;
+  transition: width;
+  /*mix-blend-mode: luminosity;*/
+  mix-blend-mode: difference;
 }
 
 .info {
   user-select: none;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
   z-index: 5;
   position: absolute;
   height: 1em;
@@ -82,7 +103,7 @@ iframe { display: none; }
   mix-blend-mode: exclusion;
 }
 
-.fas{
+.fa-play, .fa-pause {
 	color: #ffCC00;
 	font-size: 6vw;
 }
@@ -94,8 +115,45 @@ iframe { display: none; }
 	cursor: pointer;
 }
 
-#mixInfo {
-	font-family: 'Cutive Mono', monospace;
-  	font-size: 2vw;
-  	color: white;
+#volume {
+	width: 15%;
+	height: 5%;
+	position: relative;
+	margin: 0 auto;
+	top: 15px;
+	
 }
+
+/*work on formatting and adaptive sizing*/
+/*also volume is slow to go up and down*/
+#volumeSlider {
+	position: absolute;
+	margin: 0 auto;
+	height: 5px;
+	width: 100%;
+	background: #111211;
+	border-radius: 15px;
+
+}
+
+#volumeSlider .ui-slider-range-min {
+	height: 5px;
+	width: 100%;
+	position: absolute;
+	background: #b30047;
+	border: none;
+	border-radius: 10px;
+	outline: none;
+}
+
+#volumeSlider .ui-slider-handle {
+		width: 20px;
+  		height: 20px;
+		border-radius: 20px;
+	  	background: #800033;
+	  	position: absolute;
+	  	margin-left: -8px;
+	  	margin-top: -8px;
+	  	cursor: pointer;
+	  	outline: none;
+	}
