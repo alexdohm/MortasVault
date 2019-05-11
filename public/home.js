@@ -5,13 +5,17 @@ $(document).ready(function(){
   var scrub;
   var isDragging = false;
   
+  // widget methods taken from :
+  // https://developers.soundcloud.com/docs/api/html5-widget#methods
+
   player.bind(SC.Widget.Events.READY, function() {
     setInfo();
     player.pause(); //for chrome's audio playing rules
   });
   
+ 
   player.bind(SC.Widget.Events.PLAY_PROGRESS, function(e) {
-    $('.position').css('width', ( e.relativePosition*100)+"%"); 
+    $('.position').css('width', (e.relativePosition*100)+"%"); 
   });
 
   //sets pause button back to play button when sound finishes
@@ -20,25 +24,25 @@ $(document).ready(function(){
   });
 
   // Exploring within track - dragging or clicking within track
-    $('.player')
-      .on('mousedown', function(e){
+  $('.player')
+    .on('mousedown', function(e){
+      scrub = (e.pageX - pOffset.left);
+      isDragging = true;
+    })
+    .on('mousemove', function(e){
+      if (!((e.pageX - pOffset.left) === scrub) && isDragging === true) {
         scrub = (e.pageX - pOffset.left);
-        isDragging = true;
-      })
-      .on('mousemove', function(e){
-        if (!((e.pageX - pOffset.left) === scrub) && isDragging === true) {
-          scrub = (e.pageX - pOffset.left);
-          $('.position').css('width',scrub+"px");
-          var seek = player.duration*(scrub/pWidth);
-          player.seekTo(seek);
-        }
-      })
-      .on('mouseup', function(e){
         $('.position').css('width',scrub+"px");
-        var seek = player.duration*(scrub/pWidth); 
+        var seek = player.duration*(scrub/pWidth);
         player.seekTo(seek);
-        isDragging = false;
-      });
+      }
+    })
+    .on('mouseup', function(e){
+      $('.position').css('width',scrub+"px");
+      var seek = player.duration*(scrub/pWidth); 
+      player.seekTo(seek);
+      isDragging = false;
+    });
 
   // Pause and play player, change icon when done
   $('.playPause')
@@ -54,7 +58,12 @@ $(document).ready(function(){
       } else {
         player.pause();
       }
-  });
+    });
+
+  $('#volume').mouseover(function(){
+      var sliderPosition = $('#volumeSlider').slider("option", "value");
+      $('#hoverVolume').empty().append("volume:" + sliderPosition);
+    });
   
   function setInfo() {
     player.getCurrentSound(function(song) {
@@ -95,5 +104,5 @@ $(document).ready(function(){
       player.setVolume(ui.value);
     }
   });
-  
+
 });
