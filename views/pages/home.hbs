@@ -20,32 +20,44 @@
 
     <!-- Load navagation bar-->  
     {{> nav }} 
-    <!-- <div id="mixInfo">
-      <a id="spotlight" target="_tab" href="https://soundcloud.com/carceres-records/brule-e-douleurs-de-sirs">Spotlight</a> 
+    <div id="mixInfo">
+      <a id="spotlight" target="_tab" href="https://soundcloud.com/grndpodcast/trbl-hidden-legacy-grnd131">Spotlight</a> 
       <div class="mixArtist"></div>
       <div class="mixTitle"></div>
       <div class="mixReleaseDate"></div>
       <div class="mixcollective"></div>    
     </div>
+                
     <div id="mixPlayer">
       <script src='//w.soundcloud.com/player/api.js'></script>
+
+      <i class="fa fa-question-circle" aria-hidden="true"></i>
       <div class="playPause"><i class="fas fa-play"></i></div>
+
       <div class="player">
-        <span class='info'></span>
+        <span class="info"></span>
         <div class="waveform"></div>
         <div class="position"></div>  
       </div>
+
     </div>
 
     <div id="volume">
-      <i class="fas fa-volume-down"></i>
       <div id="volumeSlider"></div>
-      <i class="fas fa-volume-up"></i>
-    </div> -->
+      <span id="hoverVolume"></span>
+    </div>
 
-    <!-- <iframe class="sc-widget" src="//w.soundcloud.com/player/?url=//soundcloud.com/parfe_records/baep-debs-sacred-court"></iframe>     -->
+    <div id="chromeSucks">
+      There might be some issues with playback on Chrome due to inconsistencies with Chrome's new audio play policy and Soundcloud's widget API, other browsers work
+    </div>
+
+
+    <iframe class="sc-widget" src="//w.soundcloud.com/player/?url=//soundcloud.com/grndpodcast/trbl-hidden-legacy-grnd131" allow="autoplay"></iframe>  
+  
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/sc.js"></script>
     <script type="text/javascript" src="/home.js"></script>
 
   </body>

@@ -4,15 +4,15 @@ $(document).ready(function(){
   var pWidth = $('.player').width();
   var scrub;
   var isDragging = false;
-  
+
+
   // widget methods taken from :
   // https://developers.soundcloud.com/docs/api/html5-widget#methods
 
   player.bind(SC.Widget.Events.READY, function() {
     setInfo();
-    player.pause(); //for chrome's audio playing rules
+    player.pause();
   });
-  
  
   player.bind(SC.Widget.Events.PLAY_PROGRESS, function(e) {
     $('.position').css('width', (e.relativePosition*100)+"%"); 
@@ -45,26 +45,38 @@ $(document).ready(function(){
     });
 
   // Pause and play player, change icon when done
-  $('.playPause')
-    .click(function(){
+  $('.playPause').on('click', function(){
       var playPauseChangeButton=$(this).find('i').hasClass('fa-play');
 
       $('.playPause').find('i').removeClass('fa-pause');
       $('.playPause').find('i').addClass('fa-play');
 
       if(playPauseChangeButton) {
+
         player.play();
         $(this).find('i').toggleClass('fa-play fa-pause');
+        
       } else {
         player.pause();
       }
     });
 
-  $('#volume').mouseover(function(){
-      var sliderPosition = $('#volumeSlider').slider("option", "value");
-      $('#hoverVolume').empty().append("volume:" + sliderPosition);
+  $(function() {
+    var moveLeft = 20;
+    var moveUp = 100;
+    
+      $(".fa-question-circle").hover(function(){
+        $('#chromeSucks').show();
+    },function(){
+        $('#chromeSucks').hide();
     });
-  
+
+    $('.fa-question-circle').mousemove(function(e) {
+      $("#chromeSucks").css('top', e.pageY - 0.05*$(document).width()).css('left', e.pageX + .05*$(document).height());
+    });
+
+  });
+
   function setInfo() {
     player.getCurrentSound(function(song) {
 
@@ -82,7 +94,6 @@ $(document).ready(function(){
       
       var info = song.title;
       $('.info').html(info);
-      
       player.current = song;
     });
 
@@ -102,7 +113,18 @@ $(document).ready(function(){
     range: "min",
     slide: function(event, ui) {
       player.setVolume(ui.value);
+      $("#hoverVolume").html(ui.value);
     }
   });
+  $('#hoverVolume').html($('#volumeSlider').slider('value'));
 
 });
+
+if (navigator.appVersion.indexOf("Chrome/") != -1) {
+  $('.fa-question-circle').css('display', 'block');
+} else {
+  $('.fa-question-circle').css('display', 'none');
+}
+
+
+

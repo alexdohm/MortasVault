@@ -35,11 +35,6 @@ app.get('/', function(req, res) {
   res.render('./pages/home')
 })
 
-/* Test Home Page */
-app.get('/beta', function(req, res) {
-  res.render('./pages/homeBeta')
-})
-
 /* Labels */
 app.get('/Labels', async (req, res) => {
 
