@@ -5,7 +5,9 @@ $(document).ready(function(){
   var scrub;
   var isDragging = false;
 
-
+  //FIX : if the screen adjusts in size, fixing browsing within player
+  // Button on slider also doesn't change size properly when adjusting screen
+  
   // widget methods taken from :
   // https://developers.soundcloud.com/docs/api/html5-widget#methods
 
@@ -24,6 +26,7 @@ $(document).ready(function(){
   });
 
   // Exploring within track - dragging or clicking within track
+
   $('.player')
     .on('mousedown', function(e){
       scrub = (e.pageX - pOffset.left);
