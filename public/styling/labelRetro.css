@@ -9,13 +9,13 @@
 body {
     font-family: 'ocraregular';
     background-color: #121212;
-    color: #03DAC5;
+    color: #FFCC00;
     padding-bottom: 70px;
 }
 
 #morta-logo {
     font-family: 'Faster One', cursive;
-    color: #b0bec5;
+    color: #00ff66;
     position: fixed;
     right: 0;
     top: 0;
@@ -24,7 +24,7 @@ body {
 
 #morta-desktop-logo {
     font-family: 'Faster One', cursive;
-    color: #b0bec5;
+    color: #00ff66;
     text-decoration: none;
 }
 
@@ -45,13 +45,13 @@ body {
 
 .country-tag {
     opacity: 0.7;
-    color: #029889;
+    color: rgb(0, 153, 61);
     font-size: small;
     margin-top: auto;
 }
 
 .name-tag {
-    color: #03DAC5;
+    color: #00ff66;
 }
 
 .country-tag, .name-tag {
@@ -64,15 +64,15 @@ body {
 }
 
 .exposed-row:hover {
-    background: #b0bec5;
+    background: #00ff66;
 }
 
 .fa {
-    color: #03DAC5;
+    color: #FFCC00;
 }
 
 .fa:hover {
-    color: lightslategray;
+    color: rgb(0, 153, 61);
 }
 
 .collapsing {
@@ -87,14 +87,14 @@ body {
 
 .expanded-social-link-button {
     width: 100%;
-    border: 1px solid #03DAC5;
-    color: #03DAC5;
+    border: 1px solid #FFCC00;
+    color: #FFCC00;
     background: #121212;
 }
 
 .expanded-social-link-button:hover{
-    border-color: #03DAC5;
-    background: #03DAC5;
+    border-color: #FFCC00;
+    background: #FFCC00;
     transition: color .05s ease-in-out, background-color .05s ease-in-out, border-color .05s ease-in-out, box-shadow .05s ease-in-out;
 }
 
@@ -104,21 +104,29 @@ body {
 
 .filtering, .filtering * {
     background: #121212;
-    color: #b0bec5;
+    color: #00ff66;
     transition: color .05s ease-in-out, background-color .05s ease-in-out, border-color .05s ease-in-out, box-shadow .05s ease-in-out;
 }
 
 .filtering:hover {
-    border: 1px solid #b0bec5;
+    border: 1px solid #00ff66;
 }
 
 .search-label, #country_Filter {
     background: #121212;
-    color: #b0bec5;
+    color: #00ff66;
 }
 
 .avatar {
-    border: 3px solid #b0bec5;
+    border: 3px solid #FFCC00;
+}
+
+.or {
+    color: #00ff66
+}
+
+.form-control {
+    border: 1px solid #FFCC00;
 }
 
 /* Morta's Vault Text Sizes */
@@ -137,7 +145,7 @@ body {
 
     #page-title {
         font-size: 6vw;
-        border: 1px dotted grey;
+        border: 1px dotted #FFCC00;
     }
 }
 
@@ -151,21 +159,21 @@ body {
     }
 
     .menu-item {
-        border-bottom: 1px solid #03DAC5;
-        border-right: 1px solid #03DAC5;
+        border-bottom: 1px solid #FFCC00;
+        border-right: 1px solid #FFCC00;
         border-radius: 5px;
     }
 
     .labels {
         color: #121212 !important;
-        background: #03DAC5;
+        background: #FFCC00;
         border-color: #121212;
         border-radius: 5px;
     }
 
     #page-title {
         font-size: 4vw;
-        border: 1px dotted grey;
+        border: 1px dotted #FFCC00;
     }
 }
 
@@ -179,21 +187,21 @@ body {
     }
 
     .menu-item {
-        border-bottom: 1px solid #03DAC5;
-        border-right: 1px solid #03DAC5;
+        border-bottom: 1px solid #FFCC00;
+        border-right: 1px solid #FFCC00;
         border-radius: 5px;
     }
 
     .labels {
         color: #121212 !important;
-        background: #03DAC5;
+        background: #FFCC00;
         border-color: #121212;
         border-radius: 5px;
     }
 
     #page-title {
         font-size: 3vw;
-        border: 1px dotted grey;
+        border: 1px dotted #FFCC00;
     }
 }
 
@@ -207,38 +215,38 @@ body {
     }
 
     .menu-item {
-        border-bottom: 1px solid #03DAC5;
-        border-right: 1px solid #03DAC5;
+        border-bottom: 1px solid #FFCC00;
+        border-right: 1px solid #FFCC00;
         border-radius: 5px;
     }
 
     .labels {
         color: #121212 !important;
-        background: #03DAC5;
+        background: #FFCC00;
         border-color: #121212;
         border-radius: 5px;
     }
 
     #page-title {
         font-size: 2.5vw;
-        border: 1px dotted grey;
+        border: 1px dotted #FFCC00;
     }
 }
 
 .nav-item {
-    color: #03DAC5;
-    border-color: #03DAC5;
+    color: #FFCC00;
+    border-color: #FFCC00;
 }
 
 .nav-item:hover {
     color: #121212;
-    background: #03DAC5;
-    border-color: #03DAC5;
+    background: #FFCC00;
+    border-color: #FFCC00;
     border-radius: 5px;
 }
 
 .dropdown-divider {
-    border-top: 1px solid #b0bec5;
+    border-top: 1px solid #00ff66;
     opacity: 0.5;
 }
 
@@ -250,7 +258,7 @@ body {
 .icon-bar {
     width: 22px;
     height: 2px;
-    background-color: #b0bec5;
+    background-color: #00ff66;
     display: block;
     transition: all 0.2s;
     margin-top: 4px

@@ -9,17 +9,17 @@
 body {
 	font-family: 'ocraregular';
 	background-color:#121212;
-	color: #03DAC5;
+	color: #ffCC00;
 	padding-bottom: 70px;
 }
 
 #morta-logo{
 	font-family: 'Faster One', cursive;
-	color: #b0bec5;
+	color: #00ff66;
 }
 
 #morta-styling {
-	background: linear-gradient(to right, coral, orange, yellow);
+	background: linear-gradient(to right, mediumspringgreen, mediumseagreen, mediumturquoise);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	font-weight: 600;
@@ -33,7 +33,7 @@ body {
 }
 
 .fa-soundcloud {
-	color:  #b0bec5;
+	color:  #00ff66;
 	text-decoration: none;
 }
 
@@ -48,11 +48,10 @@ body {
 	#morta-logo {
 		font-size: 14vw;
 	}
-
 	#site-description {
 		font-size: medium;
-		border-top : 3px solid #b0bec5;
-		border-bottom : 3px solid #b0bec5;
+		border-top : 3px solid #00ff66;
+		border-bottom : 3px solid #00ff66;
 	}
 }
 
@@ -60,13 +59,12 @@ body {
 	#morta-logo {
 		font-size: 7vw;
 	}
-
 	#site-description {
 		font-size: medium;
 	}
 	.menu-item {
-		border-bottom: 1px solid #03DAC5;
-		border-right: 1px solid #03DAC5;
+		border-bottom: 1px solid #ffCC00;
+		border-right: 1px solid #ffCC00;
 		border-radius: 5px;
 	}
 }
@@ -75,13 +73,12 @@ body {
 	#morta-logo {
 		font-size: 6.25vw;
 	}
-
 	#site-description {
 		font-size: medium;
 	}
 	.menu-item {
-		border-bottom: 1px solid #03DAC5;
-		border-right: 1px solid #03DAC5;
+		border-bottom: 1px solid #ffCC00;
+		border-right: 1px solid #ffCC00;
 		border-radius: 5px;
 	}
 }
@@ -94,26 +91,26 @@ body {
 		font-size: medium;
 	}
 	.menu-item {
-		border-bottom: 1px solid #03DAC5;
-		border-right: 1px solid #03DAC5;
+		border-bottom: 1px solid #ffCC00;
+		border-right: 1px solid #ffCC00;
 		border-radius: 5px;
 	}
 }
 
 .nav-item {
-	color: #03DAC5;
-	border-color: #03DAC5;
+	color: #ffCC00;
+	border-color: #ffCC00;
 }
 
 .nav-item:hover {
 	color: #121212;
-	background: #03DAC5;
+	background: #ffCC00;
 	border-color: #121212;
 	border-radius: 5px;
 }
 
 .dropdown-divider {
-	border-top: 1px solid #b0bec5;
+	border-top: 1px solid #00ff66;
 	opacity: 0.5;
 }
 .navbar-toggler:active, .navbar-toggler:focus {
@@ -124,7 +121,7 @@ body {
 .icon-bar {
 	width: 22px;
 	height: 2px;
-	background-color: #b0bec5;
+	background-color: #00ff66;
 	display: block;
 	transition: all 0.2s;
 	margin-top: 4px
@@ -133,6 +130,8 @@ body {
 .navbar-toggler {
 	border: none;
 	background: transparent !important;
+	/*padding-left: 0;*/
+	/*padding-top: 12px;*/
 }
 
 .navbar-toggler .top-bar {
@@ -159,16 +158,5 @@ body {
 
 .navbar-toggler.collapsed .bottom-bar {
 	transform: rotate(0);
-}
-
-#return-to-top {
-	cursor: pointer;
-	bottom: 20px;
-	right: 20px;
-	background: rgba(255, 102, 102, 0.5);
-	width: 50px;
-	height: 50px;
-	text-decoration: none;
-	display: block;
 }
 

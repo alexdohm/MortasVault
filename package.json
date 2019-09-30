@@ -11,12 +11,16 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "bandcamp-scraper": "^1.2.4",
     "body-parser": "^1.13.3",
+    "cheerio": "latest",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.11.3",
     "jquery.js": "0.0.2-security",
-    "pg": "^7.7.1"
+    "pg": "^7.7.1",
+    "python-shell": "^1.0.8",
+    "request-promise": "latest"
   },
   "devDependencies": {
     "request": "^2.81.0",

@@ -1,0 +1,75 @@
+<!--Table-->
+<table class="table" id="label-table">
+    <tbody>
+    {{#each label}}
+        <tr class="clickable exposed-row" id="trigger-{{@index}}" data-toggle="collapse"
+            data-target="#item-accord-{{@index}}"
+            aria-expanded="false" aria-controls="item-accord-{{@index}}">
+            <td id="labelTitle" class="fa-icons">
+                <a onclick='expandLabel("item-accord-{{@index}}", "trigger-{{@index}}")'>
+                    <div class="row d-flex">
+                        <div class="d-inline-flex ml-3 ml-sm-2 name-tag">
+                            {{name}}
+                        </div>
+                        <div class="d-inline-flex pl-3 country-tag">
+                            {{country}}
+                        </div>
+                    </div>
+                </a>
+            </td>
+            <td id="labelBC" class="fa-icons">{{#if bandcamp}}
+                <a href="{{bandcamp}}" target="_blank"><i class="fa fa-bandcamp "></i></a>{{/if}}</td>
+            <td id="labelSC" class="fa-icons">{{#if soundcloud}}
+                <a href="{{soundcloud}}" target="_blank"><i class="fa fa-soundcloud"></i></a>{{/if}}
+            </td>
+            <td id="labelFB" class="fa-icons">{{#if facebook}}
+                <a href="{{facebook}}" target="_blank"><i class="fa fa-facebook-square"></i> </a>{{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="12" class="hiddenRow">
+                <div class="row collapse p-3 mx-0" id="item-accord-{{@index}}">
+                    <div class="col">
+                        <div class="row justify-content-center d-flex">
+                            <div class="col-5 px-0 m-3 avatar">
+                                {{#if avatar}}
+                                    <img src={{avatar}}
+                                         class="img-fluid" alt="Responsive image">
+                                {{else}}
+                                    <img src='https://dummyimage.com/500x500/121212/03dac5.jpg&text=No+Photo+:('
+                                         class="img-fluid" alt="Responsive image">
+                                {{/if}}
+                            </div>
+                            <div class="col-5 justify-content-center">
+                                <div class="row d-flex expanded-social-links">
+                                    {{#if bandcamp}}
+                                        <a href="{{bandcamp}}" target="_blank"
+                                           class="btn btn-block expanded-social-link-button align-self-center my-1 mx-2"
+                                           role="button">
+                                            <i class="fa fa-bandcamp"></i>
+                                        </a>
+                                    {{/if}}
+                                    {{#if soundcloud}}
+                                        <a href="{{soundcloud}}" target="_blank"
+                                           class="btn expanded-social-link-button align-self-center my-1 mx-2"
+                                           role="button">
+                                            <i class="fa fa-soundcloud"></i>
+                                        </a>
+                                    {{/if}}
+                                    {{#if facebook}}
+                                        <a href="{{facebook}}" target="_blank"
+                                           class="btn expanded-social-link-button align-self-center my-1 mx-2"
+                                           role="button">
+                                            <i class="fa fa-facebook-square"></i>
+                                        </a>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
