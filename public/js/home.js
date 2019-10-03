@@ -1,5 +1,5 @@
 // Save data to the current local store
-if (localStorage["scheme"] === "retro") {
+if (sessionStorage["scheme"] === "retro") {
     $('#cool-theme').prop('checked', false);
     $('#retro-theme').prop('checked', true);
 } else {

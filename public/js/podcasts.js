@@ -32,25 +32,24 @@ function load() {
             });
         }, 10);
     });
-
-    // Arrow that moves page back to the top
-    $('#return-to-top').click(function () {      // When arrow is clicked
-        $('body,html').animate({
-            scrollTop: 0                       // Scroll to top of body
-        }, 500);
-    });
-
-    // Only enable if the document has a long scroll bar
-    $(document).scroll(function() {
-        let y = $(this).scrollTop();
-        if (y > 300) {
-            $('#return-to-top').fadeIn();
-        } else {
-            $('#return-to-top').fadeOut();
-        }
-    });
 }
-$('#return-to-top').hide();
+
+// Arrow that moves page back to the top
+$('#return-to-top').click(function () {      // When arrow is clicked
+    $('body,html').animate({
+        scrollTop: 0                       // Scroll to top of body
+    }, 500);
+});
+
+// Only enable if the document has a long scroll bar
+$(document).scroll(function() {
+    let y = $(this).scrollTop();
+    if (y > 300) {
+        $('#return-to-top').show();
+    } else {
+        $('#return-to-top').fadeOut();
+    }
+});
 
 function expandLabel(tableRow, trigger) {
     let isExpanded = $("#" + trigger).attr("aria-expanded");
