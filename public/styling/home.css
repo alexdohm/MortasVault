@@ -172,3 +172,5 @@ body {
 	display: block;
 }
 
+#loadOverlay{display: none;}
+
