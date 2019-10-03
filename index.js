@@ -8,8 +8,7 @@ const PORT = process.env.PORT || 5000;
 /* Database Connection [heroku config update in .env for local running] */
 const {Pool} = require('pg');
 const pool = new Pool({
-    // connectionString : process.env.configS,
-    connectionString: 'postgres://idwaonghmolpnx:bb47386be50b1df44fd5642090f1c0e0dbc2c1b806cf6b49501fa11403353de4@ec2-174-129-41-12.compute-1.amazonaws.com:5432/dfaleqcti7lh58',
+    connectionString : process.env.configS,
     ssl: true
 });
 
