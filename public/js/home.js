@@ -1,29 +1,23 @@
-//update global color variable
-$('#retro').mouseup(function () {
-    let data = {};
-    $('link[href="styling/home.css"]').attr('href', 'styling/homeRetro.css');
-    data.colorScheme = '';
+// Save data to the current local store
+if (localStorage["scheme"] === "retro") {
+    $('#cool-theme').prop('checked', false);
+    $('#retro-theme').prop('checked', true);
+} else {
+    $('#cool-theme').prop('checked', true);
+    $('#retro-theme').prop('checked', false);
+}
 
-    $.ajax({
-        type: 'POST',
-        url: '/Color-Scheme',
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8'
-    });
+//update local color variable
+$('#retro').mouseup(function () {
+    localStorage.setItem("scheme", "retro");
+    $('link[href="styling/home.css"]').attr('href', 'styling/homeRetro.css');
+
 });
 
-//update global color variable
+//update local color variable
 $('#cool').mouseup(function () {
-    let data = {};
+    localStorage.setItem("scheme", "cool");
     $('link[href="styling/homeRetro.css"]').attr('href', 'styling/home.css');
-    data.colorScheme = 'cool';
-
-    $.ajax({
-        type: 'POST',
-        url: '/Color-Scheme',
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8'
-    });
 });
 
 

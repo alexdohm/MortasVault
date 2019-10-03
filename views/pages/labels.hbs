@@ -16,11 +16,14 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Styling -->
-    {{#if color}}
-        <link rel="stylesheet" type="text/css" href="styling/label.css">
-    {{else}}
-        <link rel="stylesheet" type="text/css" href="styling/labelRetro.css">
-    {{/if}}
+    <link rel="stylesheet" type="text/css" id="page-styling" href="">
+    <script> //set the color scheme
+    if (localStorage["scheme"] === "retro") {
+        document.getElementById('page-styling').setAttribute('href','styling/labelRetro.css');
+    } else {
+        document.getElementById('page-styling').setAttribute('href','styling/label.css');
+    }
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
 
     <!-- Favicon -->

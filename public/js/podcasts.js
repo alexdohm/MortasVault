@@ -1,3 +1,9 @@
+// if (localStorage["scheme"] === "retro") {
+//     $('#page-styling').attr('href', 'styling/podcastRetro.css');
+// } else {
+//     $('#page-styling').attr('href', 'styling/podcast.css');
+// }
+
 function load() {
     // Prevent expansion of rows for desktop sites
     $('tr[data-toggle="collapse"]').click(function (e) {

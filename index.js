@@ -2,20 +2,16 @@ const express = require('express');
 const hbs = require('express-handlebars');
 const app = express();
 
-let {PythonShell} = require('python-shell');
-
 const path = require('path');
 const PORT = process.env.PORT || 5000;
 
 /* Database Connection [heroku config update in .env for local running] */
 const {Pool} = require('pg');
 const pool = new Pool({
-    connectionString : process.env.configS,
+    // connectionString : process.env.configS,
+    connectionString: 'postgres://idwaonghmolpnx:bb47386be50b1df44fd5642090f1c0e0dbc2c1b806cf6b49501fa11403353de4@ec2-174-129-41-12.compute-1.amazonaws.com:5432/dfaleqcti7lh58',
     ssl: true
 });
-
-/* Set Color Scheme for site */
-let colorScheme = 'cool';
 
 /* Body parser for post requests */
 let bodyParser = require('body-parser');
@@ -38,13 +34,7 @@ app.set('view engine', 'hbs');
 
 /* Home Page */
 app.get('/', function (req, res) {
-    const theme = {'color': (colorScheme)};
-    res.render('./pages/home', theme);
-});
-
-/* Set Color Scheme */
-app.post('/Color-Scheme', function (req, res) {
-    colorScheme = req.body.colorScheme;
+    res.render('./pages/home');
 });
 
 /* Labels */
@@ -70,7 +60,7 @@ app.get('/Labels', async (req, res) => {
        INNER JOIN countries c ON country_id = label_country \
        ORDER BY label_name ASC;');
 
-        const results = {'label': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null, 'color': (colorScheme)};
+        const results = {'label': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null};
 
         res.render('./pages/labels', results);
         client.release()
@@ -159,7 +149,7 @@ app.get('/Podcasts', async (req, res) => {
        INNER JOIN countries ON country_id = podcast_country \
        ORDER BY podcast_name ASC');
 
-        results = {'podcast': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null, 'color': (colorScheme)};
+        results = {'podcast': (result) ? result.rows : null, 'countryL': (resultC) ? resultC.rows : null};
         res.render('./pages/podcasts', results);
         client.release()
     } catch (err) {
