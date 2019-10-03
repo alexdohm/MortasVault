@@ -5,7 +5,8 @@ Site can be accessed [Here](https://www.mortasvault.com)
 
 This site was built using :
 - Node.js
-- Javascript
+- AJAX
+- Python Web Scraping
 - Handlebars
 - Express
 - Postgres
