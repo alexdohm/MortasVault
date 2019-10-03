@@ -37,6 +37,10 @@ app.get('/', function (req, res) {
     res.render('./pages/home');
 });
 
+app.get('/Color-Scheme', function (req, res) {
+
+});
+
 /* Labels */
 app.get('/Labels', async (req, res) => {
 

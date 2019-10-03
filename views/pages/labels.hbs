@@ -23,7 +23,7 @@
     <!-- Styling -->
     <link rel="stylesheet" type="text/css" id="page-styling" href="">
     <script> //set the color scheme
-    if (localStorage["scheme"] === "retro") {
+    if (sessionStorage["scheme"] === "retro") {
         document.getElementById('page-styling').setAttribute('href', 'styling/labelRetro.css');
     } else {
         document.getElementById('page-styling').setAttribute('href', 'styling/label.css');
@@ -53,9 +53,9 @@
 
         <div class="collapse navbar-collapse" id="mainMenu">
             <div class="navbar-nav">
-                <a class="nav-item nav-link pt-2 px-4 px-sm-2 mx-sm-2 menu-item labels" href="/labels">LABELS</a>
+                <a class="nav-item nav-link pt-2 px-4 px-sm-2 mx-sm-2 menu-item labels" href="/Labels">LABELS</a>
                 <div class="dropdown-divider my-0"></div>
-                <a class="nav-item nav-link pt-2 px-4 px-sm-2 mx-sm-2 menu-item podcasts" href="/podcasts">PODCASTS</a>
+                <a class="nav-item nav-link pt-2 px-4 px-sm-2 mx-sm-2 menu-item podcasts" href="/Podcasts">PODCASTS</a>
             </div>
         </div>
         <a id="morta-logo" href="/" class="navbar-brand my-3 mx-4">MORTA'S VAULT</a>

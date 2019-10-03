@@ -1,5 +1,7 @@
-// Save data to the current local store
+// Save data to the current session store
+console.log(sessionStorage["scheme"]);
 if (sessionStorage["scheme"] === "retro") {
+    console.log("here");
     $('#cool-theme').prop('checked', false);
     $('#retro-theme').prop('checked', true);
 } else {
@@ -7,16 +9,16 @@ if (sessionStorage["scheme"] === "retro") {
     $('#retro-theme').prop('checked', false);
 }
 
-//update local color variable
+//update session color variable
 $('#retro').mouseup(function () {
-    localStorage.setItem("scheme", "retro");
+    sessionStorage.setItem("scheme", "retro");
     $('link[href="styling/home.css"]').attr('href', 'styling/homeRetro.css');
 
 });
 
-//update local color variable
+//update session color variable
 $('#cool').mouseup(function () {
-    localStorage.setItem("scheme", "cool");
+    sessionStorage.setItem("scheme", "cool");
     $('link[href="styling/homeRetro.css"]').attr('href', 'styling/home.css');
 });
 
