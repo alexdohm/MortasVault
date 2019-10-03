@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <div id="loadOverlay"
+         style="background-color:#121212; position:absolute; top:0px; left:0px; width:100%; height:100%; z-index:2000;"></div>
+</head>
+
+<head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="techno, underground, rave, morta, vault, industrial, 90's, hard">
@@ -19,9 +24,9 @@
     <link rel="stylesheet" type="text/css" id="page-styling" href="">
     <script> //set the color scheme
     if (localStorage["scheme"] === "retro") {
-        document.getElementById('page-styling').setAttribute('href','styling/labelRetro.css');
+        document.getElementById('page-styling').setAttribute('href', 'styling/labelRetro.css');
     } else {
-        document.getElementById('page-styling').setAttribute('href','styling/label.css');
+        document.getElementById('page-styling').setAttribute('href', 'styling/label.css');
     }
     </script>
     <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
@@ -193,7 +198,6 @@
         </div>
     </div>
 </div>
-
 
 
 <!--Up Arrow-->

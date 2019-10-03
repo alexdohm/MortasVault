@@ -309,3 +309,5 @@ body {
 .fa-chevron-up:hover {
 	color: darkred;
 }
+
+#loadOverlay{display: none;}
